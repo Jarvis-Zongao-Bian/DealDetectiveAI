@@ -63,6 +63,34 @@ ul li:hover {
   background: #f0f0f0;
 }
 
+.price-list {
+  list-style: none;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background: #fff;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.price-list li {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 1.1rem;
+  color: #333;
+  transition: background 0.2s;
+}
+
+.price-list li:hover {
+  background: #f0f0f0;
+}
+
+.price-list a {
+  color: #0078d4;
+  text-decoration: none;
+  font-weight: bold;
+}
+
 /* Smaller header styling */
 .App-header {
   display: flex;

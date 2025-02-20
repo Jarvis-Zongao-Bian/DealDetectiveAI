@@ -54,3 +54,15 @@ export const saveBrowsingHistory = async (userId, productName, searchQuery) => {
         console.error('Save History Error:', err);
     }
 };
+
+export const comparePrices = async (query) => {
+    try {
+        const response = await axios.get(`${API_URL}/prices/compare`, {
+            params: { query },
+        });
+        return response.data;
+    } catch (err) {
+        console.error('Price Comparison Error:', err);
+        throw err;
+    }
+};
