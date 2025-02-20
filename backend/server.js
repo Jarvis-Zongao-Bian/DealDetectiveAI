@@ -10,6 +10,12 @@ app.use(cors());
 const productRoutes = require('./routes/products');
 app.use('/api/products', productRoutes);
 
+const aiRoutes = require('./routes/ai');
+app.use('/api/ai', aiRoutes);
+
+const historyRoutes = require('./routes/history');
+app.use('/api/history', historyRoutes);
+
 const PORT = process.env.PORT || 5001;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

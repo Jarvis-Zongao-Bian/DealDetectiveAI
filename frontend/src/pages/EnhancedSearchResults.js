@@ -1,18 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import { searchProducts, getRecommendations } from '../services/api';
+import { searchProducts, getEnhancedRecommendations, saveBrowsingHistory } from '../services/api';
 import ProductCard from '../components/ProductCard';
 
-const SearchResults = () => {
+const EnhancedSearchResults = () => {
     const [searchParams] = useSearchParams();
     const [products, setProducts] = useState([]);
     const [recommendations, setRecommendations] = useState([]);
+    const userId = 1; // Simulate user ID (replace with actual auth system if available)
 
     useEffect(() => {
         const query = searchParams.get('query');
         if (query) {
-            searchProducts(query).then(setProducts);
-            getRecommendations(query).then(setRecommendations);
+            searchProducts(query).then((result) => {
+                setProducts(result);
+                result.forEach((product) => {
+                    saveBrowsingHistory(userId, product.name, query);
+                });
+            });
+            getEnhancedRecommendations(userId, query).then(setRecommendations);
         }
     }, [searchParams]);
 
@@ -25,7 +31,7 @@ const SearchResults = () => {
                 ))}
             </div>
 
-            <h2>AI-Powered Recommendations</h2>
+            <h2>Personalized AI Recommendations</h2>
             <ul>
                 {recommendations.map((item, index) => (
                     <li key={index}>{item}</li>
@@ -35,4 +41,4 @@ const SearchResults = () => {
     );
 };
 
-export default SearchResults;
+export default EnhancedSearchResults;

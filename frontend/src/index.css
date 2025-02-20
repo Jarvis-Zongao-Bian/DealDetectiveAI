@@ -46,3 +46,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+ul li:hover {
+  background: #f0f0f0;
+}
+
+/* Smaller header styling */
+.App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 20px;  /* Adjust height as needed */
+  background-color: #282c34;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 20px auto;
+  width: 80%;
+  max-width: 800px;
+}
+
+/* Smaller logo styling */
+.App-logo {
+  height: 50px;  /* Smaller size */
+  width: 50px;
+  animation: App-logo-spin infinite 20s linear;
+  margin-bottom: 10px;
+}
+
+/* Smaller title styling */
+.App-header h1 {
+  font-size: 1.5rem;  /* Smaller font size */
+  margin: 0;
+}

@@ -28,6 +28,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import SearchResults from './pages/SearchResults';
+import EnhancedSearchResults from "./pages/EnhancedSearchResults";
 import logo from './logo.svg';
 import './App.css';
 
@@ -35,14 +36,15 @@ function App() {
   return (
       <Router>
         <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1>Welcome to DealDetectiveAI</h1>
-          </header>
+          {/*<header className="App-header">*/}
+          {/*  <img src={logo} className="App-logo" alt="logo" />*/}
+          {/*  <h1>Welcome to DealDetectiveAI</h1>*/}
+          {/*</header>*/}
 
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/search" element={<SearchResults />} />
+              <Route path="/enhanced-search" element={<EnhancedSearchResults />} />
           </Routes>
         </div>
       </Router>

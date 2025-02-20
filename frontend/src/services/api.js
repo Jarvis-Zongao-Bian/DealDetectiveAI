@@ -18,3 +18,39 @@ export const searchProducts = async (query) => {
         throw err;
     }
 };
+
+export const getRecommendations = async (query) => {
+    try {
+        const response = await axios.get(`${API_URL}/ai/recommendations`, {
+            params: { query },
+        });
+        return response.data.recommendations;
+    } catch (err) {
+        console.error('AI API Error:', err);
+        throw err;
+    }
+};
+
+export const getEnhancedRecommendations = async (userId, query) => {
+    try {
+        const response = await axios.get(`${API_URL}/ai/enhanced-recommendations`, {
+            params: { userId, query },
+        });
+        return response.data.recommendations;
+    } catch (err) {
+        console.error('AI Enhanced API Error:', err);
+        throw err;
+    }
+};
+
+export const saveBrowsingHistory = async (userId, productName, searchQuery) => {
+    try {
+        await axios.post(`${API_URL}/history/add`, {
+            userId,
+            productName,
+            searchQuery,
+        });
+    } catch (err) {
+        console.error('Save History Error:', err);
+    }
+};
